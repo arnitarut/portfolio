@@ -11,21 +11,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --text-primary: #1a1a18;
-      --text-secondary: #5a5a56;
-      --text-tertiary: #9a9a94;
-      --border: rgba(26,26,24,0.12);
-      --border-mid: rgba(26,26,24,0.2);
-      --bg: #fafaf8;
+      --text-primary: #0f0f0d;
+      --text-secondary: #3a3a36;
+      --text-tertiary: #6e6e68;
+      --border: rgba(15,15,13,0.15);
+      --border-mid: rgba(15,15,13,0.28);
+      --bg: #f9f9f7;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --text-primary: #f0f0ec;
-        --text-secondary: #a8a8a2;
-        --text-tertiary: #686862;
-        --border: rgba(240,240,236,0.1);
-        --border-mid: rgba(240,240,236,0.18);
+        --text-primary: #f4f4f0;
+        --text-secondary: #c8c8c2;
+        --text-tertiary: #888882;
+        --border: rgba(244,244,240,0.14);
+        --border-mid: rgba(244,244,240,0.25);
         --bg: #111110;
       }
     }
@@ -59,7 +59,7 @@
     .nav-name {
       font-family: 'DM Mono', monospace;
       font-size: 12px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.12em;
       color: var(--text-secondary);
       text-transform: uppercase;
@@ -75,7 +75,7 @@
     .nav-links a {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.1em;
       color: var(--text-tertiary);
       text-decoration: none;
@@ -91,7 +91,7 @@
     .hero-label {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.15em;
       color: var(--text-tertiary);
       text-transform: uppercase;
@@ -100,7 +100,7 @@
 
     .hero-headline {
       font-size: clamp(2.6rem, 6vw, 4rem);
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.15;
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
@@ -108,12 +108,12 @@
 
     .hero-headline em {
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .hero-sub {
       font-size: 1.15rem;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text-secondary);
       max-width: 480px;
       line-height: 1.85;
@@ -125,7 +125,7 @@
     .hero-meta a {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.1em;
       color: var(--text-tertiary);
       text-decoration: none;
@@ -147,7 +147,7 @@
 
     .north-star p {
       font-size: clamp(1.3rem, 3vw, 1.8rem);
-      font-weight: 300;
+      font-weight: 400;
       font-style: italic;
       line-height: 1.55;
       color: var(--text-secondary);
@@ -183,7 +183,7 @@
     .act-num {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.1em;
       color: var(--text-tertiary);
       text-transform: uppercase;
@@ -205,11 +205,11 @@
       line-height: 1.3;
     }
 
-    .act-title em { font-style: italic; font-weight: 300; }
+    .act-title em { font-style: italic; font-weight: 400; }
 
     .act-body {
       font-size: 1rem;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text-secondary);
       line-height: 1.9;
     }
@@ -218,7 +218,7 @@
       display: inline-block;
       font-family: 'DM Mono', monospace;
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.08em;
       color: var(--text-tertiary);
       border: 0.5px solid var(--border);
@@ -252,7 +252,7 @@
     .work-org {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.12em;
       color: var(--text-tertiary);
       text-transform: uppercase;
@@ -268,7 +268,7 @@
 
     .work-desc {
       font-size: 0.9rem;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text-secondary);
       line-height: 1.75;
     }
@@ -290,7 +290,7 @@
     .writing-year {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text-tertiary);
       letter-spacing: 0.08em;
     }
@@ -312,13 +312,13 @@
 
     .contact-section h2 {
       font-size: 2rem;
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 1rem;
     }
 
     .contact-section p {
       font-size: 1rem;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text-secondary);
       margin-bottom: 2rem;
       max-width: 420px;
@@ -330,7 +330,7 @@
     .contact-links a {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.1em;
       color: var(--text-secondary);
       text-decoration: none;
@@ -380,7 +380,7 @@
     <div class="hero-meta">
       <a href="#story">Read my story</a>
       <a href="#work">See my work</a>
-      <a href="mailto:arnitarut@gmail.com">Get in touch</a>
+      <a href="/cdn-cgi/l/email-protection#5031223e39243122252410373d31393c7e333f3d">Get in touch</a>
     </div>
   </section>
 
@@ -500,12 +500,4 @@
     <h2>Let's talk.</h2>
     <p>I'm open to roles in AI, health tech, and development — especially where the work is hard and the stakes are real.</p>
     <div class="contact-links">
-      <a href="mailto:arnitarut@gmail.com">arnitarut@gmail.com</a>
-      <a href="https://linkedin.com/in/arnitarut" target="_blank">LinkedIn</a>
-      <a href="#">Berkeley, CA · F1 OPT</a>
-    </div>
-  </section>
-
-</div>
-</body>
-</html>
+      <a href="/cdn-cgi/l/email-protection#83e2f1edeaf7e2f1f6f7c3e4eee2eaefade0ecee"><span class="__cf_email__" data-cfemail="8decffe3e4f9ecfff8f9cdeae0ece4e1a3eee2e0">[email&#160;protected]</span>
