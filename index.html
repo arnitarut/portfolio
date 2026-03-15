@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arnita — I build things that work, in places where things don't.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text-primary: #1a1a18;
+      --text-secondary: #5a5a56;
+      --text-tertiary: #9a9a94;
+      --border: rgba(26,26,24,0.12);
+      --border-mid: rgba(26,26,24,0.2);
+      --bg: #fafaf8;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-primary: #f0f0ec;
+        --text-secondary: #a8a8a2;
+        --text-tertiary: #686862;
+        --border: rgba(240,240,236,0.1);
+        --border-mid: rgba(240,240,236,0.18);
+        --bg: #111110;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .pf {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 2rem 8rem;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5rem 0 4rem;
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 5rem;
+    }
+
+    .nav-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    /* HERO */
+    .hero { margin-bottom: 7rem; }
+
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-meta { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
+
+    .hero-meta a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 0.5px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-meta a:hover { color: var(--text-primary); border-color: var(--border-mid); }
+
+    /* PULL QUOTE */
+    .north-star {
+      padding: 3rem 0;
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      margin-bottom: 6rem;
+    }
+
+    .north-star p {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      max-width: 580px;
+    }
+
+    /* SECTIONS */
+    .section { margin-bottom: 6rem; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    /* ACTS */
+    .act {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .act:last-child { border-bottom: none; }
+
+    .act-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      padding-top: 0.25rem;
+    }
+
+    .act-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-tertiary);
+      margin-top: 0.4rem;
+    }
+
+    .act-title {
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .act-title em { font-style: italic; font-weight: 300; }
+
+    .act-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .act-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--text-tertiary);
+      border: 0.5px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-top: 1rem;
+      margin-right: 6px;
+    }
+
+    /* WORK GRID */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .work-item {
+      padding: 2rem 2rem 2rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .work-item:nth-child(even) {
+      padding-left: 2rem;
+      padding-right: 0;
+      border-left: 0.5px solid var(--border);
+    }
+
+    .work-item:last-child,
+    .work-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+
+    .work-org {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-title {
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .work-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    /* WRITING */
+    .writing-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 24px;
+      gap: 1.5rem;
+      align-items: baseline;
+      padding: 1.5rem 0;
+      border-bottom: 0.5px solid var(--border);
+      cursor: default;
+      transition: opacity 0.2s;
+    }
+
+    .writing-item:last-child { border-bottom: none; }
+
+    .writing-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+    }
+
+    .writing-title {
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .writing-arrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* CONTACT */
+    .contact-section { padding-top: 1rem; }
+
+    .contact-section h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .contact-section p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 420px;
+      line-height: 1.85;
+    }
+
+    .contact-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+
+    .contact-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 0.5px solid var(--border-mid);
+      padding-bottom: 3px;
+      transition: color 0.2s;
+    }
+
+    .contact-links a:hover { color: var(--text-primary); }
+
+    /* RESPONSIVE */
+    @media (max-width: 560px) {
+      .pf { padding: 0 1.25rem 6rem; }
+      nav { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero-headline { font-size: 2.2rem; }
+      .act { grid-template-columns: 80px 1fr; gap: 1rem; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-item:nth-child(even) { padding-left: 0; border-left: none; }
+      .writing-item { grid-template-columns: 60px 1fr 20px; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="pf">
+
+  <nav>
+    <a class="nav-name" href="#">Arnita</a>
+    <ul class="nav-links">
+      <li><a href="#story">Story</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-label">Berkeley, CA &nbsp;·&nbsp; AI &amp; Health Tech</p>
+    <h1 class="hero-headline">
+      I build things that work,<br>
+      <em>in places where things don't.</em>
+    </h1>
+    <p class="hero-sub">
+      Chemical engineer turned health tech PM turned AI researcher. I cross disciplines, enter rooms where I don't belong, and figure it out.
+    </p>
+    <div class="hero-meta">
+      <a href="#story">Read my story</a>
+      <a href="#work">See my work</a>
+      <a href="mailto:arnitarut@gmail.com">Get in touch</a>
+    </div>
+  </section>
+
+  <div class="north-star">
+    <p>"Find a place where you can serve. Where you are neither always the big fish, nor the small — but grounded in your purpose."</p>
+  </div>
+
+  <section class="section" id="story">
+    <p class="section-label">The journey</p>
+
+    <div class="act">
+      <div>
+        <div class="act-num">Act I</div>
+        <div class="act-year">2017–2019</div>
+      </div>
+      <div>
+        <h3 class="act-title">The <em>foreigner</em> who stayed</h3>
+        <p class="act-body">
+          I graduated as a chemical engineer and walked into an ophthalmology company while my peers went to oil and gas. I was a foreigner in every sense — wrong field, wrong vocabulary, wrong assumptions. A doctor once told me, "I don't need you coming here." I went home and cried. Then I came back. Over time, I became a trusted partner to clinicians, the first specialist sent to ZEISS headquarters in Germany, and the person who turned "I don't need you" into something worth building on.
+        </p>
+        <span class="act-tag">Carl Zeiss Indonesia</span>
+        <span class="act-tag">Ophthalmology</span>
+        <span class="act-tag">Field specialist</span>
+      </div>
+    </div>
+
+    <div class="act">
+      <div>
+        <div class="act-num">Act II</div>
+        <div class="act-year">2019–2024</div>
+      </div>
+      <div>
+        <h3 class="act-title">Making <em>firsts</em> happen</h3>
+        <p class="act-body">
+          Promoted into product management. Then moved to Jakarta Eye Center — a network of 10+ hospitals — where I learned what it means to make things happen at scale. Indonesia's first free glaucoma implant surgery program, serving 100 low-income patients. The first in-house laser vision correction training. The first national hospital residency program. All required navigating hierarchy, building alliances, and doing operational work that no one would acknowledge publicly. I learned that impact doesn't need applause.
+        </p>
+        <span class="act-tag">JEC Eye Hospitals</span>
+        <span class="act-tag">Program design</span>
+        <span class="act-tag">Multi-site rollout</span>
+      </div>
+    </div>
+
+    <div class="act">
+      <div>
+        <div class="act-num">Act III</div>
+        <div class="act-year">2024–now</div>
+      </div>
+      <div>
+        <h3 class="act-title">Chasing the <em>north star</em></h3>
+        <p class="act-body">
+          UC Berkeley. A Master's in Development Engineering, concentrating in AI and data analytics. I came in wanting to pivot to energy. I ended up back in healthcare — but now I could see the whole system. At EyePACS, I analyzed 80,000+ patient records and mapped real-world AI adoption barriers across 100+ clinics. I stopped asking "can I build this?" and started asking "is the ground ready, and who needs to walk with me?"
+        </p>
+        <span class="act-tag">UC Berkeley MDevEng</span>
+        <span class="act-tag">EyePACS</span>
+        <span class="act-tag">AI implementation</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section" id="work">
+    <p class="section-label">Selected work</p>
+    <div class="work-grid">
+
+      <div class="work-item">
+        <div class="work-org">EyePACS · 2025</div>
+        <div class="work-title">AI model adoption analysis</div>
+        <div class="work-desc">Cleaned 80,000+ records from 100+ clinics to surface real-world barriers to AI glaucoma screening deployment.</div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-org">JEC Eye Hospitals · 2023</div>
+        <div class="work-title">Free glaucoma surgery program</div>
+        <div class="work-desc">Co-led Indonesia's first free glaucoma implant surgery initiative — 100 low-income patients, 5+ cities, cross-division coordination.</div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-org">Carl Zeiss · 2020–2022</div>
+        <div class="work-title">ZEISS FORUM rollout</div>
+        <div class="work-desc">Led end-to-end clinical software implementation across 30+ hospitals. Secured $200K+ in projects. 200% increase in installations.</div>
+      </div>
+
+      <div class="work-item">
+        <div class="work-org">UC Berkeley · 2025</div>
+        <div class="work-title">Retinal image quality assessment</div>
+        <div class="work-desc">Capstone evaluating real-world implementation of AI-based retinal screening models in telehealth contexts.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="writing">
+    <p class="section-label">Writing &amp; reflection</p>
+
+    <div class="writing-item">
+      <span class="writing-year">2024</span>
+      <span class="writing-title">On motivation — implementing clinical software where no one asked for change</span>
+      <span class="writing-arrow">→</span>
+    </div>
+
+    <div class="writing-item">
+      <span class="writing-year">2024</span>
+      <span class="writing-title">On impact — what 100 patients taught me about the limits of goodwill</span>
+      <span class="writing-arrow">→</span>
+    </div>
+
+    <div class="writing-item">
+      <span class="writing-year">2024</span>
+      <span class="writing-title">On becoming a generalist — what a reactor in a cold wind taught me about my career</span>
+      <span class="writing-arrow">→</span>
+    </div>
+
+  </section>
+
+  <section class="contact-section" id="contact">
+    <p class="section-label">Contact</p>
+    <h2>Let's talk.</h2>
+    <p>I'm open to roles in AI, health tech, and development — especially where the work is hard and the stakes are real.</p>
+    <div class="contact-links">
+      <a href="mailto:arnitarut@gmail.com">arnitarut@gmail.com</a>
+      <a href="https://linkedin.com/in/arnitarut" target="_blank">LinkedIn</a>
+      <a href="#">Berkeley, CA · F1 OPT</a>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
